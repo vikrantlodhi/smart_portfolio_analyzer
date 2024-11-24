@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Calculators</title>
+    <link rel="stylesheet" href="calc_styles.css">
+</head>
+
+<body>
+
+    <!-- Navbar Section -->
+    <header>
+        <div class="header-left">
+            <h1>Smart Portfolio Analyzer</h1>
+        </div>
+        <div class="header-middle">
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
+                    <li><a href="calc.html">Calculators</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-right">
+            <button class="auth-btn">Sign In</button>
+        </div>
+    </header>
+
+    <!-- Main Content Section: Investment Calculators -->
+    <div class="container">
+        <div class="row">
+            <!-- FD Calculator Card -->
+            <div class="col">
+                <div class="card">
+                    <h3>FD Calculator</h3>
+                    <p>Calculate the returns on your Fixed Deposit investments</p>
+                    <button onclick="openCalculator('fd')">Open Calculator</button>
+                </div>
+            </div>
+            <!-- SIP Calculator Card -->
+            <div class="col">
+                <div class="card">
+                    <h3>SIP Calculator</h3>
+                    <p>Calculate the returns on your Systematic Investment Plan</p>
+                    <button onclick="openCalculator('sip')">Open Calculator</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Commodities Calculator Card -->
+            <div class="col">
+                <div class="card">
+                    <h3>Commodities Calculator</h3>
+                    <p>Calculate potential returns from commodities investments</p>
+                    <button onclick="openCalculator('commodities')">Open Calculator</button>
+                </div>
+            </div>
+            <!-- Stocks Calculator Card -->
+            <div class="col">
+                <div class="card">
+                    <h3>Stocks Calculator</h3>
+                    <p>Calculate potential returns from stock market investments</p>
+                    <button onclick="openCalculator('stocks')">Open Calculator</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Mutual Fund Calculator Card -->
+            <div class="col">
+                <div class="card">
+                    <h3>Mutual Fund Calculator</h3>
+                    <p>Calculate potential returns from mutual fund investments</p>
+                    <button onclick="openCalculator('mutual-fund')">Open Calculator</button>
+                </div>
+            </div>
+            <!-- Pension Calculator Card -->
+            <div class="col">
+                <div class="card">
+                    <h3>Pension Calculator</h3>
+                    <p>Calculate returns on your pension plan investments</p>
+                    <button onclick="openCalculator('pension')">Open Calculator</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- FD Calculator Popup -->
+<div class="popup-container" id="fd-popup">
+    <div class="popup-content">
+        <span id="fd-close-btn" class="close-btn" onclick="closePopup('fd')"> × </span>
+        <h2>Fixed Deposit Calculator</h2>
+        <form id="fd-form">
+            <label for="fd-principal">Principal (₹):</label>
+            <input type="number" id="fd-principal" placeholder="Enter principal ammount" required>
+
+            <label for="fd-rate">Rate of Interest (%):</label>
+            <input type="number" id="fd-rate" placeholder="Enter rate of interest" required>
+
+            <label for="fd-tenure">Tenure (in years):</label>
+            <input type="number" id="fd-tenure" placeholder="Enter tenure (in years)" required>
+
+            <label for="fd-frequency">Interest Frequency:</label>
+            <select id="fd-frequency" required>
+                <option value="1">Annually</option>
+                <option value="2">Semi-Annually</option>
+                <option value="4">Quarterly</option>
+                <option value="12">Monthly</option>
+            </select>
+
+            <button type="submit">Calculate</button>
+        </form>
+        <div id="fd-result"></div>
+        <div id="fd-total-interest"></div>
+
+        <!-- Close button at the bottom -->
+    </div>
+
+
+</div>
+
+
+
+    <!-- SIP Calculator Popup -->
+    <div id="sip-popup" class="popup-container">
+        <div class="popup-content">
+            <span id="fd-close-btn" class="close-btn" onclick="closePopup('sip')"> × </span>
+            <h2>ASIP Calculator</h2>
+            <form id="sip-form">
+                <label for="sip-principal">Monthly Investment Amount (₹):</label>
+                <input type="number" id="sip-principal" placeholder="Enter monthly investment" required>
+    
+                <label for="sip-rate">Annual Rate of Return (%):</label>
+                <input type="number" id="sip-rate" placeholder="Enter annual return rate" required>
+    
+                <label for="sip-duration">Investment Duration (Years):</label>
+                <input type="number" id="sip-duration" placeholder="Enter duration in years" required>
+    
+                <label for="sip-stepup">Step-Up Percentage (%):</label>
+                <input type="number" id="sip-stepup" placeholder="Enter step-up percentage (optional)">
+    
+                <label for="sip-inflation">Inflation Rate (%):</label>
+                <input type="number" id="sip-inflation" placeholder="Enter inflation rate (optional)">
+    
+                <button type="submit">Calculate</button>
+            </form>
+            <div id="sip-results">
+                <p id="sip-result"></p>
+                <p id="sip-total-investment"></p>
+                <p id="sip-real-returns"></p>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Commodities Calculator Popup -->
+    <div id="commodities-popup" class="popup-container">
+        <div class="popup-content">
+            <span id="fd-close-btn" class="close-btn" onclick="closePopup('commodities')"> × </span>
+            <h2>Commodities Calculator</h2>
+            <form id="commodities-form">
+                <label for="commodity-select">Select Commodity:</label>
+                <select id="commodity-select">
+                    <option value="gold">Gold</option>
+                    <option value="silver">Silver</option>
+                    <option value="crudeOil">Crude Oil</option>
+                    <!-- More commodities can be added -->
+                </select>
+            
+                <label for="current-price">Current Price:</label>
+                <input type="number" id="current-price" disabled> <!-- Disabled input to show the current price -->
+                
+                <!-- Other input fields -->
+                <label for="principal">Principal:</label>
+                <input type="number" id="principal" required>
+                
+                <label for="bought-price">Bought Price:</label>
+                <input type="number" id="bought-price" required>
+                
+                <label for="rate">Rate:</label>
+                <input type="number" id="rate" required>
+                
+                <label for="duration">Duration (Years):</label>
+                <input type="number" id="duration" required>
+                
+                <button type="submit">Calculate</button>
+            </form>
+            
+            <div id="commodities-result"></div>
+            <div id="commodities-profit-loss"></div>
+            
+        </div>
+    </div>
+
+    <!-- Stocks Calculator Popup -->
+    <div id="stocks-popup" class="popup-container">
+        <div class="popup-content">
+            <button class="close-btn" onclick="closePopup('stocks')">×</button>
+            <h2>Stocks Calculator</h2>
+            <form id="stocks-form">
+                <label for="stocks-principal">Principal (₹):</label>
+                <input type="number" id="stocks-principal" required>
+
+                <label for="stocks-rate">Interest Rate (%):</label>
+                <input type="number" id="stocks-rate" required>
+
+                <label for="stocks-duration">Duration (years):</label>
+                <input type="number" id="stocks-duration" required>
+
+                <button type="submit">Calculate</button>
+            </form>
+            <p id="stocks-result"></p>
+        </div>
+    </div>
+
+    <!-- Mutual Fund Calculator Popup -->
+    <div id="mutual-fund-popup" class="popup-container">
+        <div class="popup-content">
+            <button class="close-btn" onclick="closePopup('mutual-fund')">×</button>
+            <h2>Mutual Fund Calculator</h2>
+            <form id="mutual-fund-form">
+                <label for="mutual-fund-principal">Principal (₹):</label>
+                <input type="number" id="mutual-fund-principal" required>
+
+                <label for="mutual-fund-rate">Interest Rate (%):</label>
+                <input type="number" id="mutual-fund-rate" required>
+
+                <label for="mutual-fund-duration">Duration (years):</label>
+                <input type="number" id="mutual-fund-duration" required>
+
+                <button type="submit">Calculate</button>
+            </form>
+            <p id="mutual-fund-result"></p>
+        </div>
+    </div>
+
+    <!-- Pension Calculator Popup -->
+    <div id="pension-popup" class="popup-container">
+        <div class="popup-content">
+            <button class="close-btn" onclick="closePopup('pension')">×</button>
+            <h2>Pension Calculator</h2>
+            <form id="pension-form">
+                <label for="pension-principal">Principal (₹):</label>
+                <input type="number" id="pension-principal" required>
+
+                <label for="pension-rate">Interest Rate (%):</label>
+                <input type="number" id="pension-rate" required>
+
+                <label for="pension-duration">Duration (years):</label>
+                <input type="number" id="pension-duration" required>
+
+                <button type="submit">Calculate</button>
+            </form>
+            <p id="pension-result"></p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Smart Portfolio Analyzer. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="calc_script.js"></script>
+</body>
+
+</html>
