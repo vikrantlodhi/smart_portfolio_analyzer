@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Smart Portfolio Analyzer</title>
+    <link rel="stylesheet" href="dash_styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h1>Smart Portfolio Analyzer</h1>
+        </div>
+        <div class="header-middle">
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="../calculator/calc.html">Calculators</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-right">
+            <button class="auth-btn">Sign In</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="dashboard-overview">
+            <h2>Dashboard Overview</h2>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h3>Market Trends</h3>
+                    <p class="card-description">Shows a snapshot of market performance, highlighting key indicators like stock indices, percentage changes, and notable shifts in trends.</p>
+                    <a href="..//market-trends/market_trends.html">
+                    <button class="insights-btn">Go Insights</button>
+                    </a>
+                </div>
+                <div class="stat-card">
+                    <h3>Top Gainers</h3>
+                    <p class="card-description">Highlights the stocks or assets with the most significant losses in a given time frame, helping users identify the worst-performing securities.</p>
+                    <button class="insights-btn">Go Insights</button>
+
+                </div>
+                <div class="stat-card">
+                    <h3>Top Losers</h3>
+                    <p class="card-description">Shows the stocks or assets with the highest gains, enabling users to track the best-performing securities in the market.</p>
+                    <button class="insights-btn">Go Insights</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="charts-section">
+            <h2>Performance Analytics</h2>
+            <div class="charts-container">
+                <canvas id="marketChart"></canvas>
+                <canvas id="portfolioChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+      <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Smart Portfolio Analyzer. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Add Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dash_script.js"></script>
+</body>
+</html>
