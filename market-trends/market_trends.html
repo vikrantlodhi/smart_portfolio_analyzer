@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Exchange Platform</title>
+    <link rel="stylesheet" href="market_styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h1>Smart Portfolio Analyzer</h1>
+        </div>
+        <div class="header-middle">
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
+                    <li><a href="../calculator/calc.html">Calculators</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-right">
+            <button class="auth-btn">Sign In</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="input-section">
+            <input type="text" id="stockSymbol" placeholder="Enter Stock Symbol (e.g., TCS, INFY)" list="stockSuggestions">
+            <datalist id="stockSuggestions">
+                <option value="TCS">
+                <option value="INFY">
+                <option value="RELIANCE">
+                <option value="HDFCBANK">
+                <option value="ICICIBANK">
+            </datalist>
+            <button id="fetchStock">Get Stock Data</button>
+        </section>
+
+        <section id="stockData" class="stock-data">
+            <!-- Stock data will be displayed here -->
+        </section>
+
+        <section id="stockChart" class="chart-section">
+            <!-- Chart.js stock chart will be displayed here -->
+            <canvas id="stockPriceChart"></canvas>
+        </section>
+
+        <section id="watchlistSection" class="watchlist-section">
+            <h3>Watchlist</h3>
+            <div id="watchlist"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Smart Portfolio Analyzer. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="market_script.js"></script>
+</body>
+</html>
