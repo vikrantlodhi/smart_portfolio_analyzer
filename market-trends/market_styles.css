@@ -143,12 +143,20 @@ header {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-
+.note{
+  background-color: #fff;
+  margin-top: 0;
+  padding: 13px;
+  text-align: center;
+  font-family: serif;
+}
 .stock-data h2 {
+  color: #fff
   margin-top: 0;
 }
 
 .stock-data p {
+  color: #fff
   font-size: 1rem;
 }
 
